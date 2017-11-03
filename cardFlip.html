@@ -1,0 +1,288 @@
+<!doctype html>
+<html>
+<head>
+<title>Card Flip</title>
+<style>
+.wrapper {
+	height:400px;
+	width:400px;
+	position:absolute;
+	background-color:#4f423c;
+}
+.center {
+	width:250px;
+	height:150px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	-webkit-perspective:600px;
+	perspective:600px;
+}
+.card {
+	transform-origin:center;
+	transform-style:preserve-3d;
+	position:absolute;
+	height:100%;
+	width:100%;
+	background-color:#ffd044;
+	border-radius:5px;
+	box-shadow:3px 3px 10px rgba(0,0,0,.7);
+	transition:all 2s;
+	-webkit-perspective:1000px;
+	perspective:1000px;
+}
+.card:hover {
+	transform:rotateX(180deg);
+	box-shadow:3px -3px 10px rgba(0,0,0,.7);
+	
+}
+.front {
+	top:25%;
+	left:25%;
+	transform:translate(-25%,-25%);
+	position:absolute;
+	backface-visibility:hidden;
+	transform:rotateX(180deg);	
+}
+.back {
+	backface-visibility:hidden;
+	transform:rotateX(180deg);
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	position:absolute;
+}
+@keyframes bike {
+	0%,100% { transform:scaleY(1); }
+	50% { transform:scaleY(1.03);}
+}
+#bike{
+	animation:bike .7s infinite;
+	animation-timing-function:ease-in-out;
+	position:relative;
+}
+@keyframes stripesMove {
+	0% {left:150px; }
+	100% {left:-20px; }
+}
+.ground {
+	width:130px;
+	height:5px;
+	top:95%;
+	position:absolute;
+	overflow:hidden;
+}
+#stripe1 {
+	width:17px;
+	height:3px;
+	left:-20px;
+	background-color:#46484c;
+	position:absolute;
+	border-radius:5px;
+	animation:stripesMove 2s infinite;
+}
+#stripe2 {
+	width:19px;
+	height:3px;
+	left:-20px;
+	background-color:#46484c;
+	position:absolute;
+	border-radius:5px;
+	animation:stripesMove 2.1s infinite;
+}
+#stripe3 {
+	width:5px;
+	height:3px;
+	left:-20px;
+	background-color:#46484c;
+	position:absolute;
+	border-radius:5px;
+	animation:stripesMove 1.8s infinite;
+}
+#stripe4 {
+	width:3px;
+	height:3px;
+	left:-20px;
+	background-color:#46484c;
+	position:absolute;
+	border-radius:5px;
+	animation:stripesMove 1.5s infinite;
+}
+#stripe5 {
+	width:15px;
+	height:3px;
+	left:-20px;
+	background-color:#46484c;
+	position:absolute;
+	border-radius:5px;
+	animation:stripesMove 1.7s infinite;
+}
+#stripe6 {
+	width:2px;
+	height:3px;
+	left:-20px;
+	background-color:#46484c;
+	position:absolute;
+	border-radius:5px;
+	animation:stripesMove 1s infinite;
+}
+#stripe7 {
+	width:10px;
+	height:3px;
+	left:-20px;
+	background-color:#46484c;
+	position:absolute;
+	border-radius:5px;
+	animation:stripesMove 2.2s infinite;
+} 
+@keyframes heli {
+	0%,100% {top:0px; }
+	50% {top:10px; }
+}
+#heli {
+	position:relative;
+	animation:heli 1s ease-in-out infinite;
+	z-index:2;
+}
+@keyframes cloudMove {
+	0% {left:180px; }
+	100% {left:-20px;}
+}
+.sky {
+	width:130px;
+	height:90px;
+	position:absolute;
+	overflow:hidden;
+	top:0;
+}
+#cloud1 {
+	width:18px;
+	height:3px;
+	background-color:#46484c;
+	position:relative;
+	border-radius:5px;
+	animation:cloudMove 2s infinite;
+}
+#cloud2 {
+	width:19px;
+	height:3px;
+	top:5%;
+	background-color:#46484c;
+	position:relative;
+	border-radius:5px;
+	animation:cloudMove 2.7s infinite;
+}
+#cloud3 {
+	width:6px;
+	top:75%;
+	height:3px;
+	background-color:#46484c;
+	position:relative;
+	border-radius:5px;
+	animation:cloudMove 2.2s infinite;
+}
+#cloud4 {
+	width:11px;
+	top:40%;
+	height:3px;
+	background-color:#46484c;
+	position:relative;
+	border-radius:5px;
+	animation:cloudMove 3.5s infinite;
+}
+#cloud5 {
+	width:5px;
+	top:30%;
+	height:3px;
+	background-color:#46484c;
+	position:relative;
+	border-radius:5px;
+	animation:cloudMove 2.9s infinite;
+}
+#cloud6 {
+	width:11px;
+	top:20%;
+	height:3px;
+	background-color:#46484c;
+	position:relative;
+	border-radius:5px;
+	animation:cloudMove 1.8s infinite;
+}
+#cloud7 {
+	width:9px;
+	top:5%;
+	height:3px;
+	background-color:#46484c;
+	position:relative;
+	border-radius:5px;
+	animation:cloudMove 2.5s infinite;
+}animation:cloudMove 1.8s infinite;
+}
+#cloud8 {
+	width:9px;
+	top:47%;
+	height:3px;
+	background-color:#46484c;
+	position:relative;
+	border-radius:5px;
+	animation:cloudMove 2.5s infinite;
+}animation:cloudMove 1.8s infinite;
+}
+#cloud9 {
+	width:17px;
+	top:63%;
+	height:3px;
+	background-color:#46484c;
+	position:relative;
+	border-radius:5px;
+	animation:cloudMove 2.5s infinite;
+}animation:cloudMove 1.8s infinite;
+}
+#cloud10 {
+	width:19px;
+	top:14%;
+	height:3px;
+	background-color:#46484c;
+	position:relative;
+	border-radius:5px;
+	animation:cloudMove 2.5s infinite;
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="center">
+		<div class="card">
+			<div class="front">
+			<img id="bike" src="http://100dayscss.com/codepen/bycicle.svg"/>
+				<div class="ground">
+					<div id="stripe1"></div>
+					<div id="stripe2"></div>
+					<div id="stripe3"></div>
+					<div id="stripe4"></div>
+					<div id="stripe5"></div>
+					<div id="stripe6"></div>
+					<div id="stripe7"></div>
+				</div>
+			</div>
+			
+			<div class="back">
+			<img id="heli" src="http://100dayscss.com/codepen/helicopter.svg" />
+				<div class="sky">
+					<div id="cloud1"></div>
+					<div id="cloud2"></div>
+					<div id="cloud3"></div>
+					<div id="cloud4"></div>
+					<div id="cloud5"></div>
+					<div id="cloud6"></div>
+					<div id="cloud7"></div>
+					<div id="cloud8"></div>
+					<div id="cloud9"></div>
+					<div id="cloud10"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</body>

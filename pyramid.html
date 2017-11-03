@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+<title>Pyramid</title>
+<style>
+$cubic-bezier: cubic-bezier(.4,0,.49,1);
+
+body {
+	
+}
+.wrapper {
+	position:absolute;
+	background-color:#323142;	
+	height:300px;
+	width:300px;
+}
+.center {
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+}
+#circle {
+	position:relative;
+	overflow:hidden;
+	clip-path:circle(90px at 90px 90px);
+	width:180px;
+	height:180px;
+	border-radius:50%;
+	animation-name: turnBlack;
+	animation-duration:	4s;
+	animation-timing-function: $cubic-bezier;
+	animation-iteration-count: infinite;
+}
+
+@keyframes sunMove {
+	0% {top:40px; }
+	30% {top:0px; }
+	100% {top:40px; left:150px;}
+}
+
+#sun {
+	position:absolute;
+	top:40px;
+	left:0;
+	right:0;
+	bottom:0;
+	height:35px;
+	width:35px;
+	border-radius:50%;
+	background-color:#ffe15b;
+	z-index:1;
+	animation:sunMove;
+	animation-duration:4s;
+	animation-timing-function:$cubic-bezier;
+	animation-iteration-count:infinite;
+}
+#sky {
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	height:124px;
+	position:absolute;
+	background-color:#7ad2e8;
+	z-index:0;
+}
+@keyframes pyramidShadow {
+	0% { background-color:white; }
+	30% { background-color:#eeefd7; }
+	70% { background-color:#cbccb3; }
+	100% { background-color:#b1b299; }
+}
+#leftSide {
+	height:100px;
+	width:70px;
+	position:absolute;
+	background-color:white;
+	-webkit-clip-path:polygon(80% 54%, 0% 100%, 100% 100%);
+	clip-path:polygon(80% 54%, 0% 100%, 100% 100%);
+	left:30px;
+	z-index:3;
+	top:14%;
+	animation-name:pyramidShadow;
+	animation-duration:4s;
+	animation-timing-function:$cubic-bezier;
+	animation-iteration-count:infinite;
+}
+#rightSide {
+	height:100px;
+	width:60px;
+	position:absolute;
+	background-color:#a5a5a5;
+	//-webkit-clip-path:polygon(0% 54%, 20% 100%, 100% 100%);
+	clip-path:polygon(0% 54%, 20% 100%, 100% 100%);
+	z-index:4;
+	top:14%;
+	left:86px;
+	animation-name:pyramidShadow;
+	animation-duration:4s;
+	animation-timing-function:$cubic-bezier;
+	animation-iteration-count:infinite;
+	animation-direction:reverse;
+}
+@keyframes shadowMove {
+	0% { clip-path:polygon(100% 70%, 96% 20%, 0% 20%); }
+	30%{ transform:scaleY(.6); top:60%;}
+	100% { clip-path:polygon(0% 70%, 96% 20%, 0% 20%); }
+}
+#shadow {
+	z-index:;
+	height:50px;
+	width:120px;
+	position:absolute;
+	left:30px;
+	top:64%;
+	background-color:rgba(0,0,0,.3);
+	clip-path:polygon(100% 70%, 96% 20%, 0% 20%);
+	animation-name:shadowMove;
+	animation-duration:4s;
+	animation-timing-function:$bezier-curve;
+	animation-iteration-count:infinite;
+}
+#sand {
+	height:200px;
+	width:200px;
+	top:75px;
+	background-color:#d8d665;
+	z-index:5;
+}
+
+@keyframes turnBlack {
+	0%, 70% { background-color:rgba(0,0,0,0); z-index:0; display:hidden;}
+	100% { background-color:rgba(0,0,0,.7); z-index:10; display:visible;}
+}
+#nightSky {
+	height:190px;
+	width:190px;
+	z-index:10;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	//border-radius:50%;
+	position:absolute;
+	display:hidden;
+	background-color:rgba(0,0,0,1);
+	animation-name:turnBlack;
+	animation-duration: 4s;
+	animaiton-timing-function:$cubic-bezier;
+	animation-iteration-count:infinite;
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="center">
+		<div id="circle">
+			<div id="sun"></div>
+			<div id="sky"></div>
+			<div id="leftSide"></div>
+			<div id="rightSide"></div>
+			<div id="shadow"></div>
+			<div id="sand"></div>
+			<div id="nightSky"></div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
