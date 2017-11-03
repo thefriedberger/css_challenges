@@ -68,7 +68,7 @@
 .active{ }
 
 @keyframes topAnimateBack {
-	0% { top:30px; transform:rotate(-45deg);}
+	0% { top:30px; transform:rotate(45deg);}
 	50% { top:30px; transform:rotate(0deg);}
 	100% { top:0px; transform:rotate(0deg);}
 }
@@ -77,7 +77,7 @@
 	100% { transform:scale(1);}
 }
 @keyframes bottomAnimateBack {
-	0% { top:30px; transform:rotate(225deg); }
+	0% { top:30px; transform:rotate(-225deg); }
 	50% { top:30px; transform:rotate(0deg);}
 	100% { top:60px; transform:rotate(0deg);}
 }
@@ -97,14 +97,17 @@
 	animation-duration:1.5s;
 	animation-fill-mode:forwards;
 }
+.noAnimation {
+	animation:none;
+}
 </style>
 </head>
 <body>
 <div class="wrapper">
 	<div id="toggleBox">
-		<div class="bar" id="top"></div>
-		<div class="bar" id="middle"></div>
-		<div class="bar" id="bottom"></div>
+		<div class="bar noAnimation" id="top"></div>
+		<div class="bar noAnimation" id="middle"></div>
+		<div class="bar noAnimation" id="bottom"></div>
 	</div>
 </div>
 </body>
@@ -117,35 +120,22 @@ function animate() {
 	var middleBar = document.getElementById("middle");
 	var bottomBar = document.getElementById("bottom");
 	
-	topBar.classList.add("topMoveForward");
-	middleBar.classList.add("middleMoveForward");
-	bottomBar.classList.add("bottomMoveForward");
-	
-	theButton.classList.add("active");
-	if(theButton.classList.contains("active")){
-		theButton.removeEventListener("click", animate);
-		theButton.addEventListener("click", 
-function reverseAnimate() {
-	theButton.removeEventListener("click", reverseAnimate);
-	
-	var topBar = document.getElementById("top");
-	var middleBar = document.getElementById("middle");
-	var bottomBar = document.getElementById("bottom");
-	
-	topBar.classList.remove("topMoveForward");
-	middleBar.classList.remove("middleMoveForward");
-	bottomBar.classList.remove("bottomMoveForward");
-	
-	topBar.classList.add("topMoveBack");
-	middleBar.classList.add("middleMoveBack");
-	bottomBar.classList.add("bottomMoveBack");
-	
-	setTimeout(function() {		
-		location.reload();
-	}, 1550);
-})
+	if (topBar.className == "bar noAnimation") {
+		topBar.className = "bar topMoveForward";
+		middleBar.className = "bar middleMoveForward";
+		bottomBar.className = "bar bottomMoveForward";
+	} else {
+		topBar.className = "bar topMoveBack";
+		middleBar.className = "bar middleMoveBack";
+		bottomBar.className = "bar bottomMoveBack";
+		setTimeout(function() {
+			topBar.className = "bar noAnimation";
+			middleBar.className = "bar noAnimation";
+			bottomBar.className = "bar noAnimation";
+		},1500);
 	}
 }
+
 
 </script>
 </html>
