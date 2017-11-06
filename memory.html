@@ -1,0 +1,292 @@
+<!doctype html>
+<html>
+<head>
+<title>Memory</title>
+<style>
+body {
+	background-color:rgba(0,0,0,.75);
+}
+.wrapper {
+	height:650px;
+	width:900px;
+	background:linear-gradient(to top right, #2f5b47, #31845e);
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	z-index:0;
+}
+.center {
+	height:90%;
+	width:90%;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	border:1px solid red;
+}
+.cardBack:hover {
+	transform:rotateY(180deg);
+	position:absolute;
+	transition:1s all;
+	transform-origin:center;
+	transform-style:preserve-3d;
+}
+.face {
+	height:100px;
+	width:70px;
+	backface-visibility:hidden;
+	transform:rotateY(180deg);
+	transition:.5s;
+	position:absolute;
+	background-color:white;
+	z-index:5;
+	top:0;
+	left:0;
+}
+.cardBack {
+	position:absolute;
+	backface-visibility:hidden;
+	height:100px;
+	width:70px;
+	background:repeating-linear-gradient(-45deg, red, red 10px, white 10px, white 20px);
+	z-index:5;
+	top:0;
+	left:0;
+}
+#row1 {
+	position:absolute;
+	width:65%;
+	top:2%;
+	left:52.5%;
+	transform:translate(-50%,-0%;);
+	
+}
+#card1, #card27 {
+	position:relative;
+	transform-origin:center;
+	transform-style:preserve-3d;
+	left:-50%;
+}
+#card2, #card28 {
+	position:relative;
+	transform-origin:center;
+	left:-30%;
+}
+#card3, #card29 {
+	position:relative;
+	left:-10%;
+}
+#card4, #card30 {
+	position:relative;
+	left:10%;
+}
+#card5, #card31 {
+	position:relative;
+	left:30%;
+}
+#row2 {
+	top:22%;
+	position:absolute;
+	width:90%;
+	left:52.5%;
+	transform:translate(-50%,-0%;);
+}
+#card6, #card13, #card20 {
+	position:relative;
+	left:-50%;
+}
+#card7, #card14, #card21 {
+	position:relative;
+	left:-36%;
+}
+#card8, #card15, #card22 {
+	position:relative;
+	left:-21.5%;
+}
+#card9, #card16, #card23 {
+	position:relative;
+	left:-7%;
+}
+#card10, #card17, #card24 {
+	position:relative;
+	left:7.5%;
+}
+#card11, #card18, #card25 {
+	position:relative;
+	left:21.5%;
+}
+#card12, #card19, #card26 {
+	position:relative;
+	left:35%;
+}
+#row3 {
+	top:42%;
+	position:absolute;
+	left:52.5%;
+	width:90%;
+	transform:translate(-50%,-0%;);
+}
+#row4 {
+	top:62%;
+	position:absolute;
+	left:52.5%;
+	width:90%;
+	transform:translate(-50%,-0%;);
+}
+#row5 {
+	top:82%;
+	position:absolute;
+	left:52.5%;
+	width:65%;
+	transform:translate(-50%,-0%;);
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="center">
+		<span id="row1">
+			<div id="card1" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card2" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card3" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card4" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card5" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+		</span>
+		
+		<span id="row2">
+			<div id="card6" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card7" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card8" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card9" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card10" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card11" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card12" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+		</span>
+
+		<span id="row3">
+			<div id="card13" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card14" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card15" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card16" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card17" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card18" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card19" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+		</span>
+		
+		<span id="row4">
+			<div id="card20" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card21" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card22" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card23" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card24" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card25" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card26" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+		</span>
+	
+		<span id="row5">
+			<div id="card27" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card28" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card29" class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card30"  class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+			<div id="card31"  class="card">
+				<div class="face"></div>
+				<div class="cardBack"></div>
+			</div>
+		</span>
+	</div>
+</div>
+</body>
+<script>
+</script>
+</html>
