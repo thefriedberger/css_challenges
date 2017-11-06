@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+<title>Pull Card</title>
+<style>
+.wrapper {
+	height:400px;
+	width:400px;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	position:absolute;
+}
+.center {
+	height:100%;
+	width:100%;
+	background-color:#536177;
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	box-shadow:3px 3px 10px black;
+	border-radius:3px;
+}
+#topPull {
+	height:200px;
+	width:100px;
+	position:absolute;
+	background-color:#dcddaa;
+	top:-10%;
+	left:50%;
+	transform:translate(-50%,-10%);
+	z-index:4;
+	box-shadow:3px -1px 10px  black;
+	border-radius:20px;
+}
+#bottomPull {
+	box-shadow:inset 0 0 10px black;
+	height:150px;
+	width:100px;
+	position:absolute;
+	background-color:#dcddaa;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	z-index:3;
+}
+#cover {
+	width:120px;
+	height:170px;
+	position:absolute;
+	top:-0%;
+	left:50%;
+	transform:translate(-50%,0%);
+	background-color:#536177;
+	z-index:5;
+	box-shadow:0px 8px 6px -6px black;
+}
+#reveal {
+	height:90px;
+	width:95px;
+	top:55%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	position:absolute;
+	background-color:#dcddaa;
+	box-shadow:inset 0px 0px 10px black;
+	text-align:center;
+	padding-top:10px;
+}
+.hide {
+	display:none;
+}
+.noAnimation {
+	animation:none;
+}
+@keyframes moveTop {
+	0% { top:-10%; }
+	100% { top:-35%; }
+}
+@keyframes moveBottom {
+	0% { top:50%; }
+	100% { top:25%; }
+}
+.moveTop {
+	animation:moveTop 1s ease-in-out forwards;
+}
+.moveBottom {
+	animation:moveBottom 1s ease-in-out forwards;
+}
+@keyframes moveTopDown {
+	0% { top:-35%; }
+	100% { top:-10%; }
+}
+.topDown {
+	animation:moveTopDown 1s ease-in-out forwards;
+}
+@keyframes moveBottomDown {
+	0% { top:25%; }
+	100% { top:50%; }
+}
+.bottomDown {
+	animation:moveBottomDown 1s ease-in-out forwards;
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+	<div class="center">
+			<div id="topPull" class="noAnimation"></div>
+			<div id="bottomPull" class="noAnimation"></div>
+			<div id="cover"></div>
+			<div id="reveal">Look here! Look at all of this text! Here's text!</div>
+		</div>
+</div>
+</body>
+<script>
+var pull = document.getElementById("topPull");
+pull.addEventListener("click", move);
+
+function move() {
+	var bottom = document.getElementById("bottomPull");
+	if(pull.className=="noAnimation") {
+		pull.className = "moveTop";
+		bottom.className = "moveBottom";
+	} else {
+		pull.className = "topDown";
+		bottom.className = "bottomDown";
+		setTimeout(function() {
+			pull.className = "noAnimation";
+			bottom.className = "noAnimation";
+		},1000);
+	}
+}
+</script>
+</html>
